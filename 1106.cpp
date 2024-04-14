@@ -1,13 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 int n,k;
-vector<int> v;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cin>>n>>k;
+    vector<int> v(n);
     for(int i=1;i<=n;++i){
-        v.push_back(i);
+        v[i-1]=i;
     }
     int idx=0;
     while(v.size()>1){
