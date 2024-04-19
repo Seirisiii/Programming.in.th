@@ -11,7 +11,7 @@ int main(){
     for(int i=0;i<n-1;++i){
         int x,y,z;
         cin>>x>>y>>z;
-        adj[x-1].push_back(y-1,z);
+        adj[x-1].push_back({y-1,z});
     }
     for(int i=0;i<n;++i){
         for(auto j:adj[i]){
