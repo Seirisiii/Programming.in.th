@@ -2,8 +2,18 @@
 using namespace std;
 int n;
 vector<pair<int,int>> adj[100001];
-int dist[100001];
-int mx;
+queue<pair<int,int>> q;
+bool visited[100001];
+int dfs(int d,int u){
+    int ans=-1;
+    visited[u]=true;
+    ans=max(ans,d);
+    for(auto i:adj[u]){
+        if(visited[i.first])continue;
+        ans=max(ans,dfs(d+i.second,i.first));
+    }
+    return ans;
+}
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -12,13 +22,8 @@ int main(){
         int x,y,z;
         cin>>x>>y>>z;
         adj[x-1].push_back({y-1,z});
+        adj[y-1].push_back({x-1,z});
     }
-    for(int i=0;i<n;++i){
-        for(auto j:adj[i]){
-            dist[j.first]=max(dist[j.first],dist[i]+j.second);
-            mx=max(dist[j.first],mx);
-        }
-    }
-    cout<<mx;
+    cout<<dfs(0,0);
     return 0;
 }
