@@ -4,7 +4,7 @@ int n,m;
 char c;
 map<int,int> mp;
 int res;
-int sum;
+int ans;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -25,10 +25,10 @@ int main(){
     for(auto i:mp){
         i.second%=3;
         if(i.second<0)i.second+=3;
-        sum+=((res-curr)%3)*(i.first-previdx);
+        ans+=((res-curr)%3)*(i.first-previdx);
         previdx=i.first;
         curr=(curr+i.second)%3;
     }
-    cout<<sum;
+    cout<<ans;
     return 0;
 }
