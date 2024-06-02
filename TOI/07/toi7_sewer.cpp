@@ -13,6 +13,7 @@ int main(){
             cin>>table[i][j];
         }
     }
+    //BFS
     q.push({1,{0,0}});
     while(!q.empty()){
         int cnt=q.front().first;
