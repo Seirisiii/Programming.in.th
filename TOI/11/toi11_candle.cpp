@@ -25,7 +25,7 @@ int main(){
             if(arr[i][j]=='1'){
                 arr[i][j]='0';
                 ++cnt;
-                q.push({i,j});
+                q.emplace(i,j);
                 while(!q.empty()){
                     int ii=q.front().first;
                     int jj=q.front().second;
@@ -35,7 +35,7 @@ int main(){
                         int nj=jj+dj[k];
                         if(issafe(ni,nj)){
                             arr[ni][nj]='0';
-                            q.push({ni,nj});
+                            q.emplace(ni,nj);
                         }
                     }
                 }
